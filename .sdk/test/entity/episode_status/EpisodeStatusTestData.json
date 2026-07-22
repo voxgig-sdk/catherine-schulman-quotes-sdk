@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "episode_status": {
+      "EPISODE_STATUS00": {
+        "last_episode_date": "s28",
+        "last_episode_id": "LAST_EPISODE01",
+        "program": "s2a",
+        "status": "s2b",
+        "id": "EPISODE_STATUS00"
+      },
+      "EPISODE_STATUS01": {
+        "last_episode_date": "s50",
+        "last_episode_id": "LAST_EPISODE01",
+        "program": "s52",
+        "status": "s53",
+        "id": "EPISODE_STATUS01"
+      },
+      "EPISODE_STATUS02": {
+        "last_episode_date": "s78",
+        "last_episode_id": "LAST_EPISODE01",
+        "program": "s7a",
+        "status": "s7b",
+        "id": "EPISODE_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "episode_status": {
+      "episode_status_ref01": {
+        "last_episode_date": "sa0",
+        "last_episode_id": "LAST_EPISODE01",
+        "program": "sa2",
+        "status": "sa3"
+      }
+    }
+  }
+}

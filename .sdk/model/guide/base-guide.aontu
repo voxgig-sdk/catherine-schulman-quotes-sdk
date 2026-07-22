@@ -1,0 +1,40 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 7
+  metrics: count: method: 7
+
+  entity: episode: {
+    path: "/episodes/zakladka/random": {
+      op: load: method: *GET
+    }
+    path: "/episodes/zakladka/{id}": {
+      op: load: method: *GET
+    }
+    path: "/last/episodes/all": {
+      action: "all": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: episode_status: {
+    path: "/last/episodes/status": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: quote: {
+    path: "/quote/random": {
+      action: "random": {}
+      op: load: method: *GET
+    }
+    path: "/quote/{id}": {
+      op: load: method: *GET
+    }
+    path: "/search": {
+      op: list: method: *GET
+    }
+  }
+
+}

@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "episode": {
+      "EPISODE00": {
+        "date": "s3c",
+        "description": "s3d",
+        "id": "EPISODE00",
+        "program": "s3f",
+        "title": "s40",
+        "url": "s41"
+      },
+      "EPISODE01": {
+        "date": "s78",
+        "description": "s79",
+        "id": "EPISODE01",
+        "program": "s7b",
+        "title": "s7c",
+        "url": "s7d"
+      },
+      "EPISODE02": {
+        "date": "sb4",
+        "description": "sb5",
+        "id": "EPISODE02",
+        "program": "sb7",
+        "title": "sb8",
+        "url": "sb9"
+      }
+    }
+  },
+  "new": {
+    "episode": {
+      "episode_ref01": {
+        "date": "sf0",
+        "description": "sf1",
+        "program": "sf3",
+        "title": "sf4",
+        "url": "sf5"
+      }
+    }
+  }
+}

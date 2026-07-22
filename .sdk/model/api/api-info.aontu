@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://shulmanquotes.vercel.app/"
+      }
+      description: "This API provides access to a collection of quotes attributed to Catherine Schulman. Users can retrieve all quotes, get a random quote, or search for quotes containing specific words or by unique identifiers."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://shulmanquotes.vercel.app"
+        }
+      ]
+      summary: "This API provides access to a collection of quotes attributed to Catherine Schulman."
+      title: "Catherine Schulman Quotes"
+      version: "1.0.0"
+      website: "https://shulmanquotes.vercel.app"
+    }
+  }
+}
+

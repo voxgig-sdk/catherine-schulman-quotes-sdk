@@ -1,0 +1,349 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Catherine Schulman Quotes",
+    "description": "This API provides access to a collection of quotes attributed to Catherine Schulman. Users can retrieve all quotes, get a random quote, or search for quotes containing specific words or by unique identifiers.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://shulmanquotes.vercel.app/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://shulmanquotes.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/quote/random": {
+      "get": {
+        "summary": "Get a random quote",
+        "description": "Retrieves a random quote from the collection of Catherine Schulman quotes",
+        "operationId": "getRandomQuote",
+        "tags": [
+          "Quotes"
+        ],
+        "responses": {
+          "200": {
+            "description": "A random quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/quote/{id}": {
+      "get": {
+        "summary": "Get quote by ID",
+        "description": "Retrieves a specific quote by its unique identifier",
+        "operationId": "getQuoteById",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the quote",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Quote not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search quotes",
+        "description": "Search for quotes containing specific words or phrases",
+        "operationId": "searchQuotes",
+        "tags": [
+          "Quotes"
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Search query string to find in quotes",
+            "schema": {
+              "type": "string",
+              "example": "дом"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of quotes matching the search query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quote"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid search query"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/episodes/zakladka/random": {
+      "get": {
+        "summary": "Get random episode",
+        "description": "Retrieves a random episode from the zakladka program",
+        "operationId": "getRandomEpisode",
+        "tags": [
+          "Episodes"
+        ],
+        "responses": {
+          "200": {
+            "description": "A random episode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Episode"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/episodes/zakladka/{id}": {
+      "get": {
+        "summary": "Get episode by ID",
+        "description": "Retrieves a specific episode from the zakladka program by its identifier",
+        "operationId": "getEpisodeById",
+        "tags": [
+          "Episodes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the episode",
+            "schema": {
+              "type": "integer",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested episode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Episode"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Episode not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/last/episodes/all": {
+      "get": {
+        "summary": "Get all last episodes",
+        "description": "Retrieves the latest episodes from all programs",
+        "operationId": "getLastEpisodesAll",
+        "tags": [
+          "Episodes"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of latest episodes from all programs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Episode"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/last/episodes/status": {
+      "get": {
+        "summary": "Get last episode status for program",
+        "description": "Retrieves the status of the last episode for a specific program",
+        "operationId": "getLastEpisodeStatus",
+        "tags": [
+          "Episodes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status information of the last episode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EpisodeStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the quote",
+            "example": 3
+          },
+          "text": {
+            "type": "string",
+            "description": "The quote text",
+            "example": "Политика — это искусство возможного"
+          },
+          "author": {
+            "type": "string",
+            "description": "Author of the quote",
+            "example": "Catherine Schulman"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source or context of the quote",
+            "example": "Закладка"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the quote was said or published"
+          }
+        }
+      },
+      "Episode": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the episode",
+            "example": 3
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the episode"
+          },
+          "program": {
+            "type": "string",
+            "description": "Name of the program",
+            "example": "zakladka"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Release date of the episode"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the episode"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description or summary of the episode"
+          }
+        }
+      },
+      "EpisodeStatus": {
+        "type": "object",
+        "properties": {
+          "program": {
+            "type": "string",
+            "description": "Name of the program"
+          },
+          "lastEpisodeId": {
+            "type": "integer",
+            "description": "ID of the last episode"
+          },
+          "lastEpisodeDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of the last episode"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the program",
+            "enum": [
+              "active",
+              "inactive",
+              "completed"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Quotes",
+      "description": "Operations related to quotes"
+    },
+    {
+      "name": "Episodes",
+      "description": "Operations related to program episodes"
+    }
+  ]
+}

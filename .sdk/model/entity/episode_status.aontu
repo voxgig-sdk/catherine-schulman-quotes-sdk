@@ -1,0 +1,54 @@
+# Entity: episode_status
+
+main: kit: entity: episode_status: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "last_episode_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_episode_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "program"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "episode_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/last/episodes/status"
+          parts: [
+            "last"
+            "episodes"
+            "status"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
