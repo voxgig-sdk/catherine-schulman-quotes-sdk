@@ -25,18 +25,24 @@ export interface EpisodeListMatch {
   program?: string
   title?: string
   url?: string
+
+  // Selects a custom action instead of the plain list:
+  //   'all'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface EpisodeStatus {
-  last_episode_date?: string
-  last_episode_id?: number
+  lastEpisodeDate?: string
+  lastEpisodeId?: number
   program?: string
   status?: string
 }
 
 export interface EpisodeStatusLoadMatch {
-  last_episode_date?: string
-  last_episode_id?: number
+  lastEpisodeDate?: string
+  lastEpisodeId?: number
   program?: string
   status?: string
 }
@@ -51,6 +57,12 @@ export interface Quote {
 
 export interface QuoteLoadMatch {
   id: number
+
+  // Selects a custom action instead of the plain load:
+  //   'random'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface QuoteListMatch {

@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Episode record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Episode record (throws on error).
     $episode = $client->Episode()->load(["id" => 1]);
     print_r($episode);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = CatherineSchulmanQuotesSDK::test([
     "entity" => ["episode" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $episode = $client->Episode()->list();
 print_r($episode);
 ```
@@ -242,7 +243,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -279,8 +280,8 @@ API path: `/last/episodes/all`
 
 | Field | Description |
 | --- | --- |
-| `last_episode_date` |  |
-| `last_episode_id` |  |
+| `lastEpisodeDate` |  |
+| `lastEpisodeId` |  |
 | `program` |  |
 | `status` |  |
 
@@ -332,7 +333,7 @@ Create an instance: `$episode = $client->Episode();`
 #### Example: Load
 
 ```php
-// load() returns the bare Episode record (throws on error).
+// load() returns the ENTITY — call data_get() for the Episode record (throws on error).
 $episode = $client->Episode()->load(["id" => 1]);
 ```
 
@@ -358,15 +359,15 @@ Create an instance: `$episode_status = $client->EpisodeStatus();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_episode_date` | `string` |  |
-| `last_episode_id` | `int` |  |
+| `lastEpisodeDate` | `string` |  |
+| `lastEpisodeId` | `int` |  |
 | `program` | `string` |  |
 | `status` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare EpisodeStatus record (throws on error).
+// load() returns the ENTITY — call data_get() for the EpisodeStatus record (throws on error).
 $episode_status = $client->EpisodeStatus()->load();
 ```
 
@@ -395,7 +396,7 @@ Create an instance: `$quote = $client->Quote();`
 #### Example: Load
 
 ```php
-// load() returns the bare Quote record (throws on error).
+// load() returns the ENTITY — call data_get() for the Quote record (throws on error).
 $quote = $client->Quote()->load(["id" => 1]);
 ```
 

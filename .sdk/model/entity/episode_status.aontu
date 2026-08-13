@@ -6,12 +6,12 @@ main: kit: entity: episode_status: {
 
   fields: [
     {
-      name: "last_episode_date"
+      name: "lastEpisodeDate"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "last_episode_id"
+      name: "lastEpisodeId"
       req: false
       type: "`$INTEGER`"
     }

@@ -161,8 +161,8 @@ episode_status = client.EpisodeStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_episode_date` | `str` | No |  |
-| `last_episode_id` | `int` | No |  |
+| `lastEpisodeDate` | `str` | No |  |
+| `lastEpisodeId` | `int` | No |  |
 | `program` | `str` | No |  |
 | `status` | `str` | No |  |
 

@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CatherineSchulmanQuotesSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CatherineSchulmanQuotesSDK.test({
+  entity: {
+    episode: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const episodes = await client.Episode().list()
-// episodes is an array of bare Episode records populated with mock data
+// episodes is an array of Episode entities, populated with mock data
+// — call episodes[0].data() for the record itself
 console.log(episodes)
 ```
 
@@ -110,7 +119,7 @@ import { CatherineSchulmanQuotesSDK } from '@voxgig-sdk/catherine-schulman-quote
 
 const client = new CatherineSchulmanQuotesSDK()
 
-// List all episodes (returns Episode[])
+// List all episodes (returns EpisodeEntity[] — .data() for the record)
 const episodes = await client.Episode().list()
 for (const episode of episodes) {
   console.log(episode)
@@ -193,7 +202,7 @@ $client = new CatherineSchulmanQuotesSDK();
 $episodes = $client->Episode()->list();
 print_r($episodes);
 
-// Load a specific episode (returns the bare record; throws on error)
+// Load a specific episode (returns the ENTITY; call data_get() for the record; throws on error)
 $episode = $client->Episode()->load(["id" => 1]);
 print_r($episode);
 ```
@@ -224,7 +233,7 @@ client = CatherineSchulmanQuotesSDK.new
 episodes = client.Episode.list
 puts episodes
 
-# Load a specific episode (returns the bare record; raises on error)
+# Load a specific episode (returns the ENTITY; call data_get for the record)
 episode = client.Episode.load({ "id" => 1 })
 puts episode
 ```
@@ -361,6 +370,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://shulmanquotes.vercel.app/](https://shulmanquotes.vercel.app/)
 

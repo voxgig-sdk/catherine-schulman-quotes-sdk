@@ -147,6 +147,26 @@ const episode = client.Episode()
 | `title` | `string` | No |  |
 | `url` | `string` | No |  |
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `all` | `/last/episodes/all` | `client.Episode().list({ $action: 'all', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Episode record — check the API definition for its shape.
+
+```ts
+const result = await client.Episode().list({
+  $action: 'all',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `list(match: object, ctrl?: object)`
@@ -203,8 +223,8 @@ const episode_status = client.EpisodeStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_episode_date` | `string` | No |  |
-| `last_episode_id` | `number` | No |  |
+| `lastEpisodeDate` | `string` | No |  |
+| `lastEpisodeId` | `number` | No |  |
 | `program` | `string` | No |  |
 | `status` | `string` | No |  |
 
@@ -261,6 +281,26 @@ const quote = client.Quote()
 | `id` | `number` | No |  |
 | `source` | `string` | No |  |
 | `text` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `random` | `/quote/random` | `client.Quote().load({ $action: 'random', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Quote record — check the API definition for its shape.
+
+```ts
+const result = await client.Quote().load({
+  $action: 'random',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

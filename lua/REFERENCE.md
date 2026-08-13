@@ -163,8 +163,8 @@ local episode_status = client:EpisodeStatus(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_episode_date` | `string` | No |  |
-| `last_episode_id` | `number` | No |  |
+| `lastEpisodeDate` | `string` | No |  |
+| `lastEpisodeId` | `number` | No |  |
 | `program` | `string` | No |  |
 | `status` | `string` | No |  |
 

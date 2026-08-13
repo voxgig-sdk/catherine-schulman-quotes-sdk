@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Episode record (raises on error).
+  # load returns the ENTITY — call data_get for the Episode record (raises on error).
   episode = client.Episode.load({ "id" => 1 })
   puts episode
 rescue => err
@@ -134,7 +134,8 @@ client = CatherineSchulmanQuotesSDK.test({
   "entity" => { "episode" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 episode = client.Episode.list()
 puts episode
 ```
@@ -269,8 +270,8 @@ API path: `/last/episodes/all`
 
 | Field | Description |
 | --- | --- |
-| `last_episode_date` |  |
-| `last_episode_id` |  |
+| `lastEpisodeDate` |  |
+| `lastEpisodeId` |  |
 | `program` |  |
 | `status` |  |
 
@@ -322,7 +323,7 @@ Create an instance: `episode = client.Episode`
 #### Example: Load
 
 ```ruby
-# load returns the bare Episode record (raises on error).
+# load returns the ENTITY — call data_get for the Episode record (raises on error).
 episode = client.Episode.load({ "id" => 1 })
 ```
 
@@ -348,15 +349,15 @@ Create an instance: `episode_status = client.EpisodeStatus`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_episode_date` | `String` |  |
-| `last_episode_id` | `Integer` |  |
+| `lastEpisodeDate` | `String` |  |
+| `lastEpisodeId` | `Integer` |  |
 | `program` | `String` |  |
 | `status` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare EpisodeStatus record (raises on error).
+# load returns the ENTITY — call data_get for the EpisodeStatus record (raises on error).
 episode_status = client.EpisodeStatus.load()
 ```
 
@@ -385,7 +386,7 @@ Create an instance: `quote = client.Quote`
 #### Example: Load
 
 ```ruby
-# load returns the bare Quote record (raises on error).
+# load returns the ENTITY — call data_get for the Quote record (raises on error).
 quote = client.Quote.load({ "id" => 1 })
 ```
 

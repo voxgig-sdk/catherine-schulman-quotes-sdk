@@ -23,8 +23,8 @@ module CatherineSchulmanQuotesTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CATHERINESCHULMANQUOTES_TEST_LIVE")
-    override = getenv("CATHERINESCHULMANQUOTES_TEST_OVERRIDE")
+    live = getenv("CATHERINE_SCHULMAN_QUOTES_TEST_LIVE")
+    override = getenv("CATHERINE_SCHULMAN_QUOTES_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CatherineSchulmanQuotesTestRunner
       end
     end
 
-    explain = getenv("CATHERINESCHULMANQUOTES_TEST_EXPLAIN")
-    m["CATHERINESCHULMANQUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CATHERINE_SCHULMAN_QUOTES_TEST_EXPLAIN")
+    m["CATHERINE_SCHULMAN_QUOTES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

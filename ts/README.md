@@ -35,7 +35,9 @@ const client = new CatherineSchulmanQuotesSDK()
 
 ### 2. List episode records
 
-`list()` resolves to an array of Episode objects — iterate it directly:
+`list()` resolves to an array of Episode ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const episodes = await client.Episode().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = CatherineSchulmanQuotesSDK.test()
 
 const episode = await client.Episode().list()
-// episode is a bare entity populated with mock response data
+// episode is the entity, populated with mock response data
+// — call episode.data() for the record itself
 console.log(episode)
 ```
 
@@ -316,8 +319,8 @@ API path: `/last/episodes/all`
 
 | Field | Description |
 | --- | --- |
-| `last_episode_date` |  |
-| `last_episode_id` |  |
+| `lastEpisodeDate` |  |
+| `lastEpisodeId` |  |
 | `program` |  |
 | `status` |  |
 
@@ -393,8 +396,8 @@ Create an instance: `const episode_status = client.EpisodeStatus()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_episode_date` | `string` |  |
-| `last_episode_id` | `number` |  |
+| `lastEpisodeDate` | `string` |  |
+| `lastEpisodeId` | `number` |  |
 | `program` | `string` |  |
 | `status` | `string` |  |
 

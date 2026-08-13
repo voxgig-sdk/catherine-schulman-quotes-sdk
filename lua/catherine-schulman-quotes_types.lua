@@ -26,14 +26,14 @@
 ---@field url? string
 
 ---@class EpisodeStatus
----@field last_episode_date? string
----@field last_episode_id? number
+---@field lastEpisodeDate? string
+---@field lastEpisodeId? number
 ---@field program? string
 ---@field status? string
 
 ---@class EpisodeStatusLoadMatch
----@field last_episode_date? string
----@field last_episode_id? number
+---@field lastEpisodeDate? string
+---@field lastEpisodeId? number
 ---@field program? string
 ---@field status? string
 

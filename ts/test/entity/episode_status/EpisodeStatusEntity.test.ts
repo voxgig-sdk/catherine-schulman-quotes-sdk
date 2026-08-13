@@ -26,8 +26,8 @@ import {
 describe('EpisodeStatusEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CATHERINESCHULMANQUOTES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CATHERINESCHULMANQUOTES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CATHERINE_SCHULMAN_QUOTES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CATHERINE_SCHULMAN_QUOTES_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CatherineSchulmanQuotesSDK.test()
@@ -62,7 +62,7 @@ describe('EpisodeStatusEntity', async () => {
     // LOAD
     const episode_status_ref01_ent = client.EpisodeStatus()
     const episode_status_ref01_match_dt0: any = {}
-    const episode_status_ref01_data_dt0 = await episode_status_ref01_ent.load(episode_status_ref01_match_dt0)
+    const episode_status_ref01_data_dt0 = (await episode_status_ref01_ent.load(episode_status_ref01_match_dt0)).data()
     assert(null != episode_status_ref01_data_dt0)
 
 

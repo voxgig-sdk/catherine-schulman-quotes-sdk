@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from catherineschulmanquotes_sdk.utility.voxgig_struct import voxgig_struct as vs
 from catherineschulmanquotes_sdk import CatherineSchulmanQuotesSDK
-from core import helpers
+from catherineschulmanquotes_sdk.core import helpers
 from test import runner
 
 
@@ -102,11 +102,11 @@ def _quote_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CATHERINESCHULMANQUOTES_TEST_QUOTE_ENTID": {},
-        "CATHERINESCHULMANQUOTES_TEST_LIVE": "FALSE",
+        "CATHERINE_SCHULMAN_QUOTES_TEST_QUOTE_ENTID": {},
+        "CATHERINE_SCHULMAN_QUOTES_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("CATHERINESCHULMANQUOTES_TEST_LIVE") == "TRUE"
+    live = env.get("CATHERINE_SCHULMAN_QUOTES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

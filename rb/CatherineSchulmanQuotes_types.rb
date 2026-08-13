@@ -77,10 +77,10 @@ EpisodeListMatch = Struct.new(
 
 # EpisodeStatus entity data model.
 #
-# @!attribute [rw] last_episode_date
+# @!attribute [rw] lastEpisodeDate
 #   @return [String, nil]
 #
-# @!attribute [rw] last_episode_id
+# @!attribute [rw] lastEpisodeId
 #   @return [Integer, nil]
 #
 # @!attribute [rw] program
@@ -89,8 +89,8 @@ EpisodeListMatch = Struct.new(
 # @!attribute [rw] status
 #   @return [String, nil]
 EpisodeStatus = Struct.new(
-  :last_episode_date,
-  :last_episode_id,
+  :lastEpisodeDate,
+  :lastEpisodeId,
   :program,
   :status,
   keyword_init: true
@@ -98,10 +98,10 @@ EpisodeStatus = Struct.new(
 
 # Request payload for EpisodeStatus#load.
 #
-# @!attribute [rw] last_episode_date
+# @!attribute [rw] lastEpisodeDate
 #   @return [String, nil]
 #
-# @!attribute [rw] last_episode_id
+# @!attribute [rw] lastEpisodeId
 #   @return [Integer, nil]
 #
 # @!attribute [rw] program
@@ -110,8 +110,8 @@ EpisodeStatus = Struct.new(
 # @!attribute [rw] status
 #   @return [String, nil]
 EpisodeStatusLoadMatch = Struct.new(
-  :last_episode_date,
-  :last_episode_id,
+  :lastEpisodeDate,
+  :lastEpisodeId,
   :program,
   :status,
   keyword_init: true

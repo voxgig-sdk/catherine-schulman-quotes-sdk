@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ CatherineSchulmanQuotesUtility.registrar = ->(u) {
   u.prepare_params = CatherineSchulmanQuotesUtilities::PrepareParams
   u.prepare_path = CatherineSchulmanQuotesUtilities::PreparePath
   u.prepare_query = CatherineSchulmanQuotesUtilities::PrepareQuery
+  u.graphql_body = CatherineSchulmanQuotesUtilities::GraphqlBody
+  u.graphql_errors = CatherineSchulmanQuotesUtilities::GraphqlErrors
   u.result_basic = CatherineSchulmanQuotesUtilities::ResultBasic
   u.result_body = CatherineSchulmanQuotesUtilities::ResultBody
   u.result_headers = CatherineSchulmanQuotesUtilities::ResultHeaders

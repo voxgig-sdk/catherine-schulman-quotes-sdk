@@ -165,8 +165,8 @@ $episode_status = $client->EpisodeStatus();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_episode_date` | `string` | No |  |
-| `last_episode_id` | `int` | No |  |
+| `lastEpisodeDate` | `string` | No |  |
+| `lastEpisodeId` | `int` | No |  |
 | `program` | `string` | No |  |
 | `status` | `string` | No |  |
 

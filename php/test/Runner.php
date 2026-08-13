@@ -43,8 +43,8 @@ class CatherineSchulmanQuotesTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CATHERINESCHULMANQUOTES_TEST_LIVE');
-        $override = self::getenv('CATHERINESCHULMANQUOTES_TEST_OVERRIDE');
+        $live = self::getenv('CATHERINE_SCHULMAN_QUOTES_TEST_LIVE');
+        $override = self::getenv('CATHERINE_SCHULMAN_QUOTES_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CatherineSchulmanQuotesTestRunner
             }
         }
 
-        $explain = self::getenv('CATHERINESCHULMANQUOTES_TEST_EXPLAIN');
+        $explain = self::getenv('CATHERINE_SCHULMAN_QUOTES_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CATHERINESCHULMANQUOTES_TEST_EXPLAIN'] = $explain;
+            $m['CATHERINE_SCHULMAN_QUOTES_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -112,11 +112,11 @@ def episode_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "CATHERINESCHULMANQUOTES_TEST_EPISODE_ENTID" => {},
-    "CATHERINESCHULMANQUOTES_TEST_LIVE" => "FALSE",
+    "CATHERINE_SCHULMAN_QUOTES_TEST_EPISODE_ENTID" => {},
+    "CATHERINE_SCHULMAN_QUOTES_TEST_LIVE" => "FALSE",
   })
 
-  live = env["CATHERINESCHULMANQUOTES_TEST_LIVE"] == "TRUE"
+  live = env["CATHERINE_SCHULMAN_QUOTES_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

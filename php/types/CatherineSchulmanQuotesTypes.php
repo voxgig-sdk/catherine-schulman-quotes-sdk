@@ -43,8 +43,8 @@ class EpisodeListMatch
 /** EpisodeStatus entity data model. */
 class EpisodeStatus
 {
-    public ?string $last_episode_date = null;
-    public ?int $last_episode_id = null;
+    public ?string $lastEpisodeDate = null;
+    public ?int $lastEpisodeId = null;
     public ?string $program = null;
     public ?string $status = null;
 }
@@ -52,8 +52,8 @@ class EpisodeStatus
 /** Request payload for EpisodeStatus#load. */
 class EpisodeStatusLoadMatch
 {
-    public ?string $last_episode_date = null;
-    public ?int $last_episode_id = null;
+    public ?string $lastEpisodeDate = null;
+    public ?int $lastEpisodeId = null;
     public ?string $program = null;
     public ?string $status = null;
 }

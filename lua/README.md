@@ -258,8 +258,8 @@ API path: `/last/episodes/all`
 
 | Field | Description |
 | --- | --- |
-| `last_episode_date` |  |
-| `last_episode_id` |  |
+| `lastEpisodeDate` |  |
+| `lastEpisodeId` |  |
 | `program` |  |
 | `status` |  |
 
@@ -335,8 +335,8 @@ Create an instance: `local episode_status = client:EpisodeStatus(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_episode_date` | `string` |  |
-| `last_episode_id` | `number` |  |
+| `lastEpisodeDate` | `string` |  |
+| `lastEpisodeId` | `number` |  |
 | `program` | `string` |  |
 | `status` | `string` |  |
 
