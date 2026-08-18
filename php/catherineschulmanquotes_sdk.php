@@ -40,7 +40,7 @@ class CatherineSchulmanQuotesSDK
         $utility = new CatherineSchulmanQuotesUtility();
         $this->_utility = $utility;
 
-        $config = CatherineSchulmanQuotesConfig::make_config();
+        $config = CatherineSchulmanQuotesConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

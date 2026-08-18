@@ -15,7 +15,7 @@ export interface Episode {
 }
 
 export interface EpisodeLoadMatch {
-  id?: number
+  id: number
 }
 
 export interface EpisodeListMatch {

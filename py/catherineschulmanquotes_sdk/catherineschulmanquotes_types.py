@@ -25,7 +25,7 @@ class Episode(TypedDict, total=False):
     url: str
 
 
-class EpisodeLoadMatch(TypedDict, total=False):
+class EpisodeLoadMatch(TypedDict):
     id: int
 
 

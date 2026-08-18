@@ -24,7 +24,7 @@ type Episode struct {
 
 // EpisodeLoadMatch is the typed request payload for Episode.LoadTyped.
 type EpisodeLoadMatch struct {
-	Id *int `json:"id,omitempty"`
+	Id int `json:"id"`
 }
 
 // EpisodeListMatch is the typed request payload for Episode.ListTyped.

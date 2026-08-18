@@ -15,7 +15,7 @@
 ---@field url? string
 
 ---@class EpisodeLoadMatch
----@field id? number
+---@field id number
 
 ---@class EpisodeListMatch
 ---@field date? string

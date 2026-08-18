@@ -26,7 +26,7 @@ class Episode
 /** Request payload for Episode#load. */
 class EpisodeLoadMatch
 {
-    public ?int $id = null;
+    public int $id;
 }
 
 /** Request payload for Episode#list. */
