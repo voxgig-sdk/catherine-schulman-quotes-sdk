@@ -8,21 +8,25 @@ main: kit: entity: episode_status: {
     {
       name: "lastEpisodeDate"
       req: false
+      short: "Date of the last episode"
       type: "`$STRING`"
     }
     {
       name: "lastEpisodeId"
       req: false
+      short: "ID of the last episode"
       type: "`$INTEGER`"
     }
     {
       name: "program"
       req: false
+      short: "Name of the program"
       type: "`$STRING`"
     }
     {
       name: "status"
       req: false
+      short: "Current status of the program"
       type: "`$STRING`"
     }
   ]

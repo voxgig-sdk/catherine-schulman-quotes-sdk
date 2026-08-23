@@ -95,12 +95,12 @@ episode = client.Episode()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `str` | No |  |
-| `description` | `str` | No |  |
-| `id` | `int` | No |  |
-| `program` | `str` | No |  |
-| `title` | `str` | No |  |
-| `url` | `str` | No |  |
+| `date` | `str` | No | Release date of the episode |
+| `description` | `str` | No | Description or summary of the episode |
+| `id` | `int` | No | Unique identifier for the episode |
+| `program` | `str` | No | Name of the program |
+| `title` | `str` | No | Title of the episode |
+| `url` | `str` | No | URL to the episode |
 
 ### Operations
 
@@ -161,10 +161,10 @@ episode_status = client.EpisodeStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `lastEpisodeDate` | `str` | No |  |
-| `lastEpisodeId` | `int` | No |  |
-| `program` | `str` | No |  |
-| `status` | `str` | No |  |
+| `lastEpisodeDate` | `str` | No | Date of the last episode |
+| `lastEpisodeId` | `int` | No | ID of the last episode |
+| `program` | `str` | No | Name of the program |
+| `status` | `str` | No | Current status of the program |
 
 ### Operations
 
@@ -215,11 +215,11 @@ quote = client.Quote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `str` | No |  |
-| `date` | `str` | No |  |
-| `id` | `int` | No |  |
-| `source` | `str` | No |  |
-| `text` | `str` | No |  |
+| `author` | `str` | No | Author of the quote |
+| `date` | `str` | No | Date when the quote was said or published |
+| `id` | `int` | No | Unique identifier for the quote |
+| `source` | `str` | No | Source or context of the quote |
+| `text` | `str` | No | The quote text |
 
 ### Operations
 

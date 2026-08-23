@@ -243,12 +243,12 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `description` |  |
-| `id` |  |
-| `program` |  |
-| `title` |  |
-| `url` |  |
+| `date` | Release date of the episode |
+| `description` | Description or summary of the episode |
+| `id` | Unique identifier for the episode |
+| `program` | Name of the program |
+| `title` | Title of the episode |
+| `url` | URL to the episode |
 
 Operations: List, Load.
 
@@ -258,10 +258,10 @@ API path: `/last/episodes/all`
 
 | Field | Description |
 | --- | --- |
-| `lastEpisodeDate` |  |
-| `lastEpisodeId` |  |
-| `program` |  |
-| `status` |  |
+| `lastEpisodeDate` | Date of the last episode |
+| `lastEpisodeId` | ID of the last episode |
+| `program` | Name of the program |
+| `status` | Current status of the program |
 
 Operations: Load.
 
@@ -271,11 +271,11 @@ API path: `/last/episodes/status`
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `date` |  |
-| `id` |  |
-| `source` |  |
-| `text` |  |
+| `author` | Author of the quote |
+| `date` | Date when the quote was said or published |
+| `id` | Unique identifier for the quote |
+| `source` | Source or context of the quote |
+| `text` | The quote text |
 
 Operations: List, Load.
 
@@ -301,12 +301,12 @@ Create an instance: `local episode = client:Episode(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `string` |  |
-| `description` | `string` |  |
-| `id` | `number` |  |
-| `program` | `string` |  |
-| `title` | `string` |  |
-| `url` | `string` |  |
+| `date` | `string` | Release date of the episode |
+| `description` | `string` | Description or summary of the episode |
+| `id` | `number` | Unique identifier for the episode |
+| `program` | `string` | Name of the program |
+| `title` | `string` | Title of the episode |
+| `url` | `string` | URL to the episode |
 
 #### Example: Load
 
@@ -335,10 +335,10 @@ Create an instance: `local episode_status = client:EpisodeStatus(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `lastEpisodeDate` | `string` |  |
-| `lastEpisodeId` | `number` |  |
-| `program` | `string` |  |
-| `status` | `string` |  |
+| `lastEpisodeDate` | `string` | Date of the last episode |
+| `lastEpisodeId` | `number` | ID of the last episode |
+| `program` | `string` | Name of the program |
+| `status` | `string` | Current status of the program |
 
 #### Example: Load
 
@@ -362,11 +362,11 @@ Create an instance: `local quote = client:Quote(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
-| `date` | `string` |  |
-| `id` | `number` |  |
-| `source` | `string` |  |
-| `text` | `string` |  |
+| `author` | `string` | Author of the quote |
+| `date` | `string` | Date when the quote was said or published |
+| `id` | `number` | Unique identifier for the quote |
+| `source` | `string` | Source or context of the quote |
+| `text` | `string` | The quote text |
 
 #### Example: Load
 

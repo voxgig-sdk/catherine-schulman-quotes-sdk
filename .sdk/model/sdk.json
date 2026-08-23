@@ -36,36 +36,42 @@
               "active": true,
               "name": "date",
               "req": false,
+              "short": "Release date of the episode",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Description or summary of the episode",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the episode",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "program",
               "req": false,
+              "short": "Name of the program",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Title of the episode",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "URL to the episode",
               "type": "`$STRING`"
             }
           ],
@@ -171,24 +177,28 @@
               "active": true,
               "name": "lastEpisodeDate",
               "req": false,
+              "short": "Date of the last episode",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lastEpisodeId",
               "req": false,
+              "short": "ID of the last episode",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "program",
               "req": false,
+              "short": "Name of the program",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Current status of the program",
               "type": "`$STRING`"
             }
           ],
@@ -232,30 +242,35 @@
               "active": true,
               "name": "author",
               "req": false,
+              "short": "Author of the quote",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "date",
               "req": false,
+              "short": "Date when the quote was said or published",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the quote",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "source",
               "req": false,
+              "short": "Source or context of the quote",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "text",
               "req": false,
+              "short": "The quote text",
               "type": "`$STRING`"
             }
           ],

@@ -8,31 +8,37 @@ main: kit: entity: episode: {
     {
       name: "date"
       req: false
+      short: "Release date of the episode"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Description or summary of the episode"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the episode"
       type: "`$INTEGER`"
     }
     {
       name: "program"
       req: false
+      short: "Name of the program"
       type: "`$STRING`"
     }
     {
       name: "title"
       req: false
+      short: "Title of the episode"
       type: "`$STRING`"
     }
     {
       name: "url"
       req: false
+      short: "URL to the episode"
       type: "`$STRING`"
     }
   ]

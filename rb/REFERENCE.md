@@ -101,12 +101,12 @@ episode = client.Episode
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `String` | No |  |
-| `description` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `program` | `String` | No |  |
-| `title` | `String` | No |  |
-| `url` | `String` | No |  |
+| `date` | `String` | No | Release date of the episode |
+| `description` | `String` | No | Description or summary of the episode |
+| `id` | `Integer` | No | Unique identifier for the episode |
+| `program` | `String` | No | Name of the program |
+| `title` | `String` | No | Title of the episode |
+| `url` | `String` | No | URL to the episode |
 
 ### Operations
 
@@ -166,10 +166,10 @@ episode_status = client.EpisodeStatus
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `lastEpisodeDate` | `String` | No |  |
-| `lastEpisodeId` | `Integer` | No |  |
-| `program` | `String` | No |  |
-| `status` | `String` | No |  |
+| `lastEpisodeDate` | `String` | No | Date of the last episode |
+| `lastEpisodeId` | `Integer` | No | ID of the last episode |
+| `program` | `String` | No | Name of the program |
+| `status` | `String` | No | Current status of the program |
 
 ### Operations
 
@@ -221,11 +221,11 @@ quote = client.Quote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `String` | No |  |
-| `date` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `source` | `String` | No |  |
-| `text` | `String` | No |  |
+| `author` | `String` | No | Author of the quote |
+| `date` | `String` | No | Date when the quote was said or published |
+| `id` | `Integer` | No | Unique identifier for the quote |
+| `source` | `String` | No | Source or context of the quote |
+| `text` | `String` | No | The quote text |
 
 ### Operations
 

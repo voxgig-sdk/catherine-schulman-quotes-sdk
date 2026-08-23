@@ -8,26 +8,31 @@ main: kit: entity: quote: {
     {
       name: "author"
       req: false
+      short: "Author of the quote"
       type: "`$STRING`"
     }
     {
       name: "date"
       req: false
+      short: "Date when the quote was said or published"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the quote"
       type: "`$INTEGER`"
     }
     {
       name: "source"
       req: false
+      short: "Source or context of the quote"
       type: "`$STRING`"
     }
     {
       name: "text"
       req: false
+      short: "The quote text"
       type: "`$STRING`"
     }
   ]

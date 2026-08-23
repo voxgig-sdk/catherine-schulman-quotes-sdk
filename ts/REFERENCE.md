@@ -140,12 +140,12 @@ const episode = client.Episode()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `date` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `number` | No |  |
-| `program` | `string` | No |  |
-| `title` | `string` | No |  |
-| `url` | `string` | No |  |
+| `date` | `string` | No | Release date of the episode |
+| `description` | `string` | No | Description or summary of the episode |
+| `id` | `number` | No | Unique identifier for the episode |
+| `program` | `string` | No | Name of the program |
+| `title` | `string` | No | Title of the episode |
+| `url` | `string` | No | URL to the episode |
 
 ### Actions
 
@@ -223,10 +223,10 @@ const episode_status = client.EpisodeStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `lastEpisodeDate` | `string` | No |  |
-| `lastEpisodeId` | `number` | No |  |
-| `program` | `string` | No |  |
-| `status` | `string` | No |  |
+| `lastEpisodeDate` | `string` | No | Date of the last episode |
+| `lastEpisodeId` | `number` | No | ID of the last episode |
+| `program` | `string` | No | Name of the program |
+| `status` | `string` | No | Current status of the program |
 
 ### Operations
 
@@ -276,11 +276,11 @@ const quote = client.Quote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `string` | No |  |
-| `date` | `string` | No |  |
-| `id` | `number` | No |  |
-| `source` | `string` | No |  |
-| `text` | `string` | No |  |
+| `author` | `string` | No | Author of the quote |
+| `date` | `string` | No | Date when the quote was said or published |
+| `id` | `number` | No | Unique identifier for the quote |
+| `source` | `string` | No | Source or context of the quote |
+| `text` | `string` | No | The quote text |
 
 ### Actions
 

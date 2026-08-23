@@ -255,12 +255,12 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `date` |  |
-| `description` |  |
-| `id` |  |
-| `program` |  |
-| `title` |  |
-| `url` |  |
+| `date` | Release date of the episode |
+| `description` | Description or summary of the episode |
+| `id` | Unique identifier for the episode |
+| `program` | Name of the program |
+| `title` | Title of the episode |
+| `url` | URL to the episode |
 
 Operations: List, Load.
 
@@ -270,10 +270,10 @@ API path: `/last/episodes/all`
 
 | Field | Description |
 | --- | --- |
-| `lastEpisodeDate` |  |
-| `lastEpisodeId` |  |
-| `program` |  |
-| `status` |  |
+| `lastEpisodeDate` | Date of the last episode |
+| `lastEpisodeId` | ID of the last episode |
+| `program` | Name of the program |
+| `status` | Current status of the program |
 
 Operations: Load.
 
@@ -283,11 +283,11 @@ API path: `/last/episodes/status`
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `date` |  |
-| `id` |  |
-| `source` |  |
-| `text` |  |
+| `author` | Author of the quote |
+| `date` | Date when the quote was said or published |
+| `id` | Unique identifier for the quote |
+| `source` | Source or context of the quote |
+| `text` | The quote text |
 
 Operations: List, Load.
 
@@ -313,12 +313,12 @@ Create an instance: `episode = client.Episode`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `date` | `String` |  |
-| `description` | `String` |  |
-| `id` | `Integer` |  |
-| `program` | `String` |  |
-| `title` | `String` |  |
-| `url` | `String` |  |
+| `date` | `String` | Release date of the episode |
+| `description` | `String` | Description or summary of the episode |
+| `id` | `Integer` | Unique identifier for the episode |
+| `program` | `String` | Name of the program |
+| `title` | `String` | Title of the episode |
+| `url` | `String` | URL to the episode |
 
 #### Example: Load
 
@@ -349,10 +349,10 @@ Create an instance: `episode_status = client.EpisodeStatus`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `lastEpisodeDate` | `String` |  |
-| `lastEpisodeId` | `Integer` |  |
-| `program` | `String` |  |
-| `status` | `String` |  |
+| `lastEpisodeDate` | `String` | Date of the last episode |
+| `lastEpisodeId` | `Integer` | ID of the last episode |
+| `program` | `String` | Name of the program |
+| `status` | `String` | Current status of the program |
 
 #### Example: Load
 
@@ -377,11 +377,11 @@ Create an instance: `quote = client.Quote`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `String` |  |
-| `date` | `String` |  |
-| `id` | `Integer` |  |
-| `source` | `String` |  |
-| `text` | `String` |  |
+| `author` | `String` | Author of the quote |
+| `date` | `String` | Date when the quote was said or published |
+| `id` | `Integer` | Unique identifier for the quote |
+| `source` | `String` | Source or context of the quote |
+| `text` | `String` | The quote text |
 
 #### Example: Load
 

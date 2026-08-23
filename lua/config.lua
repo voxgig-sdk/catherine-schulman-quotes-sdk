@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "CatherineSchulmanQuotes",
+      slug = "catherine-schulman-quotes",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -31,26 +34,32 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "date",
+            ["short"] = "Release date of the episode",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "description",
+            ["short"] = "Description or summary of the episode",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["short"] = "Unique identifier for the episode",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "program",
+            ["short"] = "Name of the program",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "title",
+            ["short"] = "Title of the episode",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "url",
+            ["short"] = "URL to the episode",
             ["type"] = "`$STRING`",
           },
         },
@@ -142,18 +151,22 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "lastEpisodeDate",
+            ["short"] = "Date of the last episode",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "lastEpisodeId",
+            ["short"] = "ID of the last episode",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "program",
+            ["short"] = "Name of the program",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "status",
+            ["short"] = "Current status of the program",
             ["type"] = "`$STRING`",
           },
         },
@@ -190,22 +203,27 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "author",
+            ["short"] = "Author of the quote",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "date",
+            ["short"] = "Date when the quote was said or published",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["short"] = "Unique identifier for the quote",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "source",
+            ["short"] = "Source or context of the quote",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "text",
+            ["short"] = "The quote text",
             ["type"] = "`$STRING`",
           },
         },

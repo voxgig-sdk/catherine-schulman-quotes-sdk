@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CatherineSchulmanQuotes",
+			"slug": "catherine-schulman-quotes",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,26 +38,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "date",
+						"short": "Release date of the episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Description or summary of the episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the episode",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "program",
+						"short": "Name of the program",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Title of the episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "URL to the episode",
 						"type": "`$STRING`",
 					},
 				},
@@ -146,18 +155,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "lastEpisodeDate",
+						"short": "Date of the last episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lastEpisodeId",
+						"short": "ID of the last episode",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "program",
+						"short": "Name of the program",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Current status of the program",
 						"type": "`$STRING`",
 					},
 				},
@@ -194,22 +207,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
+						"short": "Author of the quote",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "date",
+						"short": "Date when the quote was said or published",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the quote",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "source",
+						"short": "Source or context of the quote",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "text",
+						"short": "The quote text",
 						"type": "`$STRING`",
 					},
 				},

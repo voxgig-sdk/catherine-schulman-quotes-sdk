@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CatherineSchulmanQuotes',
+        slug: "catherine-schulman-quotes",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -62,26 +73,32 @@ class Config {
       "fields": [
         {
           "name": "date",
+          "short": "Release date of the episode",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Description or summary of the episode",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the episode",
           "type": "`$INTEGER`"
         },
         {
           "name": "program",
+          "short": "Name of the program",
           "type": "`$STRING`"
         },
         {
           "name": "title",
+          "short": "Title of the episode",
           "type": "`$STRING`"
         },
         {
           "name": "url",
+          "short": "URL to the episode",
           "type": "`$STRING`"
         }
       ],
@@ -173,18 +190,22 @@ class Config {
       "fields": [
         {
           "name": "lastEpisodeDate",
+          "short": "Date of the last episode",
           "type": "`$STRING`"
         },
         {
           "name": "lastEpisodeId",
+          "short": "ID of the last episode",
           "type": "`$INTEGER`"
         },
         {
           "name": "program",
+          "short": "Name of the program",
           "type": "`$STRING`"
         },
         {
           "name": "status",
+          "short": "Current status of the program",
           "type": "`$STRING`"
         }
       ],
@@ -221,22 +242,27 @@ class Config {
       "fields": [
         {
           "name": "author",
+          "short": "Author of the quote",
           "type": "`$STRING`"
         },
         {
           "name": "date",
+          "short": "Date when the quote was said or published",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the quote",
           "type": "`$INTEGER`"
         },
         {
           "name": "source",
+          "short": "Source or context of the quote",
           "type": "`$STRING`"
         },
         {
           "name": "text",
+          "short": "The quote text",
           "type": "`$STRING`"
         }
       ],
