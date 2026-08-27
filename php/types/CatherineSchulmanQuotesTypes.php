@@ -77,10 +77,6 @@ class QuoteLoadMatch
 /** Request payload for Quote#list. */
 class QuoteListMatch
 {
-    public ?string $author = null;
-    public ?string $date = null;
-    public ?int $id = null;
-    public ?string $source = null;
-    public ?string $text = null;
+    public string $q;
 }
 

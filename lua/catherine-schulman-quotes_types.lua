@@ -48,11 +48,7 @@
 ---@field id number
 
 ---@class QuoteListMatch
----@field author? string
----@field date? string
----@field id? number
----@field source? string
----@field text? string
+---@field q string
 
 local M = {}
 

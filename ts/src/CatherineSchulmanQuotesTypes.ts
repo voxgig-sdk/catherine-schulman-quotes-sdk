@@ -66,10 +66,6 @@ export interface QuoteLoadMatch {
 }
 
 export interface QuoteListMatch {
-  author?: string
-  date?: string
-  id?: number
-  source?: string
-  text?: string
+  q: string
 }
 

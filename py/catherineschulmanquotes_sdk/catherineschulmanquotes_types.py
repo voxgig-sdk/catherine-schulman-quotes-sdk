@@ -64,9 +64,5 @@ class QuoteLoadMatch(TypedDict):
     id: int
 
 
-class QuoteListMatch(TypedDict, total=False):
-    author: str
-    date: str
-    id: int
-    source: str
-    text: str
+class QuoteListMatch(TypedDict):
+    q: str

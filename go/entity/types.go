@@ -69,11 +69,7 @@ type QuoteLoadMatch struct {
 
 // QuoteListMatch is the typed request payload for Quote.ListTyped.
 type QuoteListMatch struct {
-	Author *string `json:"author,omitempty"`
-	Date *string `json:"date,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Source *string `json:"source,omitempty"`
-	Text *string `json:"text,omitempty"`
+	Q string `json:"q"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the
