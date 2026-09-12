@@ -6,6 +6,7 @@ main: kit: entity: episode: {
 
   fields: [
     {
+      format: "date"
       name: "date"
       req: false
       short: "Release date of the episode"
@@ -36,6 +37,7 @@ main: kit: entity: episode: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "url"
       req: false
       short: "URL to the episode"
@@ -56,10 +58,16 @@ main: kit: entity: episode: {
         {
           method: "GET"
           orig: "/last/episodes/all"
-          parts: [
-            "last"
-            "episodes"
-            "all"
+          segments: [
+            {
+              lit: "last"
+            }
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "all"
+            }
           ]
           select: {
             "$action": "all"
@@ -89,10 +97,16 @@ main: kit: entity: episode: {
           }
           method: "GET"
           orig: "/episodes/zakladka/{id}"
-          parts: [
-            "episodes"
-            "zakladka"
-            "{id}"
+          segments: [
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "zakladka"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -107,10 +121,16 @@ main: kit: entity: episode: {
         {
           method: "GET"
           orig: "/episodes/zakladka/random"
-          parts: [
-            "episodes"
-            "zakladka"
-            "random"
+          segments: [
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "zakladka"
+            }
+            {
+              lit: "random"
+            }
           ]
           transform: {
             req: "`reqdata`"

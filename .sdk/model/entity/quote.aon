@@ -12,6 +12,7 @@ main: kit: entity: quote: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "date"
       req: false
       short: "Date when the quote was said or published"
@@ -62,8 +63,10 @@ main: kit: entity: quote: {
           }
           method: "GET"
           orig: "/search"
-          parts: [
-            "search"
+          segments: [
+            {
+              lit: "search"
+            }
           ]
           select: {
             exist: [
@@ -95,9 +98,13 @@ main: kit: entity: quote: {
           }
           method: "GET"
           orig: "/quote/{id}"
-          parts: [
-            "quote"
-            "{id}"
+          segments: [
+            {
+              lit: "quote"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -112,9 +119,13 @@ main: kit: entity: quote: {
         {
           method: "GET"
           orig: "/quote/random"
-          parts: [
-            "quote"
-            "random"
+          segments: [
+            {
+              lit: "quote"
+            }
+            {
+              lit: "random"
+            }
           ]
           select: {
             "$action": "random"

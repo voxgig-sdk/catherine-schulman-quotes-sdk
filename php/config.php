@@ -60,6 +60,7 @@ class CatherineSchulmanQuotesConfig
         'episode' => [
           'fields' => [
             [
+              'format' => 'date',
               'name' => 'date',
               'short' => 'Release date of the episode',
               'type' => '`$STRING`',
@@ -85,10 +86,15 @@ class CatherineSchulmanQuotesConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'url',
               'short' => 'URL to the episode',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'episode',
           'op' => [
@@ -101,10 +107,16 @@ class CatherineSchulmanQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/last/episodes/all',
-                  'parts' => [
-                    'last',
-                    'episodes',
-                    'all',
+                  'segments' => [
+                    [
+                      'lit' => 'last',
+                    ],
+                    [
+                      'lit' => 'episodes',
+                    ],
+                    [
+                      'lit' => 'all',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'all',
@@ -112,6 +124,11 @@ class CatherineSchulmanQuotesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'last',
+                    'episodes',
+                    'all',
                   ],
                 ],
               ],
@@ -136,10 +153,16 @@ class CatherineSchulmanQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episodes/zakladka/{id}',
-                  'parts' => [
-                    'episodes',
-                    'zakladka',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'episodes',
+                    ],
+                    [
+                      'lit' => 'zakladka',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -150,21 +173,37 @@ class CatherineSchulmanQuotesConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [
+                    'episodes',
+                    'zakladka',
+                    '{id}',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episodes/zakladka/random',
-                  'parts' => [
-                    'episodes',
-                    'zakladka',
-                    'random',
+                  'segments' => [
+                    [
+                      'lit' => 'episodes',
+                    ],
+                    [
+                      'lit' => 'zakladka',
+                    ],
+                    [
+                      'lit' => 'random',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'episodes',
+                    'zakladka',
+                    'random',
                   ],
                 ],
               ],
@@ -177,6 +216,7 @@ class CatherineSchulmanQuotesConfig
         'episode_status' => [
           'fields' => [
             [
+              'format' => 'date',
               'name' => 'lastEpisodeDate',
               'short' => 'Date of the last episode',
               'type' => '`$STRING`',
@@ -208,15 +248,26 @@ class CatherineSchulmanQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/last/episodes/status',
-                  'parts' => [
-                    'last',
-                    'episodes',
-                    'status',
+                  'segments' => [
+                    [
+                      'lit' => 'last',
+                    ],
+                    [
+                      'lit' => 'episodes',
+                    ],
+                    [
+                      'lit' => 'status',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'last',
+                    'episodes',
+                    'status',
                   ],
                 ],
               ],
@@ -234,6 +285,7 @@ class CatherineSchulmanQuotesConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date',
               'name' => 'date',
               'short' => 'Date when the quote was said or published',
               'type' => '`$STRING`',
@@ -253,6 +305,10 @@ class CatherineSchulmanQuotesConfig
               'short' => 'The quote text',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'quote',
           'op' => [
@@ -276,8 +332,10 @@ class CatherineSchulmanQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/search',
-                  'parts' => [
-                    'search',
+                  'segments' => [
+                    [
+                      'lit' => 'search',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -287,6 +345,9 @@ class CatherineSchulmanQuotesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'search',
                   ],
                 ],
               ],
@@ -311,9 +372,13 @@ class CatherineSchulmanQuotesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quote/{id}',
-                  'parts' => [
-                    'quote',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'quote',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -324,15 +389,23 @@ class CatherineSchulmanQuotesConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [
+                    'quote',
+                    '{id}',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quote/random',
-                  'parts' => [
-                    'quote',
-                    'random',
+                  'segments' => [
+                    [
+                      'lit' => 'quote',
+                    ],
+                    [
+                      'lit' => 'random',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'random',
@@ -340,6 +413,10 @@ class CatherineSchulmanQuotesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'quote',
+                    'random',
                   ],
                 ],
               ],

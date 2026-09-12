@@ -6,6 +6,7 @@ main: kit: entity: episode_status: {
 
   fields: [
     {
+      format: "date"
       name: "lastEpisodeDate"
       req: false
       short: "Date of the last episode"
@@ -39,10 +40,16 @@ main: kit: entity: episode_status: {
         {
           method: "GET"
           orig: "/last/episodes/status"
-          parts: [
-            "last"
-            "episodes"
-            "status"
+          segments: [
+            {
+              lit: "last"
+            }
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "status"
+            }
           ]
           transform: {
             req: "`reqdata`"

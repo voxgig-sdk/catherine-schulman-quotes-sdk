@@ -46,6 +46,7 @@ module CatherineSchulmanQuotesConfig
         "episode" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "date",
               "short" => "Release date of the episode",
               "type" => "`$STRING`",
@@ -71,11 +72,16 @@ module CatherineSchulmanQuotesConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "url",
               "short" => "URL to the episode",
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "episode",
           "op" => {
             "list" => {
@@ -87,10 +93,16 @@ module CatherineSchulmanQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/last/episodes/all",
-                  "parts" => [
-                    "last",
-                    "episodes",
-                    "all",
+                  "segments" => [
+                    {
+                      "lit" => "last",
+                    },
+                    {
+                      "lit" => "episodes",
+                    },
+                    {
+                      "lit" => "all",
+                    },
                   ],
                   "select" => {
                     "$action" => "all",
@@ -99,6 +111,11 @@ module CatherineSchulmanQuotesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "last",
+                    "episodes",
+                    "all",
+                  ],
                 },
               ],
             },
@@ -122,10 +139,16 @@ module CatherineSchulmanQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/episodes/zakladka/{id}",
-                  "parts" => [
-                    "episodes",
-                    "zakladka",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "episodes",
+                    },
+                    {
+                      "lit" => "zakladka",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -136,22 +159,38 @@ module CatherineSchulmanQuotesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "episodes",
+                    "zakladka",
+                    "{id}",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/episodes/zakladka/random",
-                  "parts" => [
-                    "episodes",
-                    "zakladka",
-                    "random",
+                  "segments" => [
+                    {
+                      "lit" => "episodes",
+                    },
+                    {
+                      "lit" => "zakladka",
+                    },
+                    {
+                      "lit" => "random",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "episodes",
+                    "zakladka",
+                    "random",
+                  ],
                 },
               ],
             },
@@ -163,6 +202,7 @@ module CatherineSchulmanQuotesConfig
         "episode_status" => {
           "fields" => [
             {
+              "format" => "date",
               "name" => "lastEpisodeDate",
               "short" => "Date of the last episode",
               "type" => "`$STRING`",
@@ -194,16 +234,27 @@ module CatherineSchulmanQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/last/episodes/status",
-                  "parts" => [
-                    "last",
-                    "episodes",
-                    "status",
+                  "segments" => [
+                    {
+                      "lit" => "last",
+                    },
+                    {
+                      "lit" => "episodes",
+                    },
+                    {
+                      "lit" => "status",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "last",
+                    "episodes",
+                    "status",
+                  ],
                 },
               ],
             },
@@ -220,6 +271,7 @@ module CatherineSchulmanQuotesConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date",
               "name" => "date",
               "short" => "Date when the quote was said or published",
               "type" => "`$STRING`",
@@ -240,6 +292,10 @@ module CatherineSchulmanQuotesConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "quote",
           "op" => {
             "list" => {
@@ -262,8 +318,10 @@ module CatherineSchulmanQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/search",
-                  "parts" => [
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -274,6 +332,9 @@ module CatherineSchulmanQuotesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "search",
+                  ],
                 },
               ],
             },
@@ -297,9 +358,13 @@ module CatherineSchulmanQuotesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quote/{id}",
-                  "parts" => [
-                    "quote",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "quote",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -310,15 +375,23 @@ module CatherineSchulmanQuotesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "quote",
+                    "{id}",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quote/random",
-                  "parts" => [
-                    "quote",
-                    "random",
+                  "segments" => [
+                    {
+                      "lit" => "quote",
+                    },
+                    {
+                      "lit" => "random",
+                    },
                   ],
                   "select" => {
                     "$action" => "random",
@@ -327,6 +400,10 @@ module CatherineSchulmanQuotesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "quote",
+                    "random",
+                  ],
                 },
               ],
             },

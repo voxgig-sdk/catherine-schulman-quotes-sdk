@@ -1,6 +1,14 @@
 # CatherineSchulmanQuotes SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -55,6 +63,7 @@ def make_config():
       "episode": {
         "fields": [
           {
+            "format": "date",
             "name": "date",
             "short": "Release date of the episode",
             "type": "`$STRING`",
@@ -80,11 +89,16 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "url",
             "short": "URL to the episode",
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "episode",
         "op": {
           "list": {
@@ -96,10 +110,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/last/episodes/all",
-                "parts": [
-                  "last",
-                  "episodes",
-                  "all",
+                "segments": [
+                  {
+                    "lit": "last",
+                  },
+                  {
+                    "lit": "episodes",
+                  },
+                  {
+                    "lit": "all",
+                  },
                 ],
                 "select": {
                   "$action": "all",
@@ -108,6 +128,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "last",
+                  "episodes",
+                  "all",
+                ],
               },
             ],
           },
@@ -131,10 +156,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/episodes/zakladka/{id}",
-                "parts": [
-                  "episodes",
-                  "zakladka",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "episodes",
+                  },
+                  {
+                    "lit": "zakladka",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -145,22 +176,38 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "episodes",
+                  "zakladka",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/episodes/zakladka/random",
-                "parts": [
-                  "episodes",
-                  "zakladka",
-                  "random",
+                "segments": [
+                  {
+                    "lit": "episodes",
+                  },
+                  {
+                    "lit": "zakladka",
+                  },
+                  {
+                    "lit": "random",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "episodes",
+                  "zakladka",
+                  "random",
+                ],
               },
             ],
           },
@@ -172,6 +219,7 @@ def make_config():
       "episode_status": {
         "fields": [
           {
+            "format": "date",
             "name": "lastEpisodeDate",
             "short": "Date of the last episode",
             "type": "`$STRING`",
@@ -203,16 +251,27 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/last/episodes/status",
-                "parts": [
-                  "last",
-                  "episodes",
-                  "status",
+                "segments": [
+                  {
+                    "lit": "last",
+                  },
+                  {
+                    "lit": "episodes",
+                  },
+                  {
+                    "lit": "status",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "last",
+                  "episodes",
+                  "status",
+                ],
               },
             ],
           },
@@ -229,6 +288,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "date",
             "short": "Date when the quote was said or published",
             "type": "`$STRING`",
@@ -249,6 +309,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "quote",
         "op": {
           "list": {
@@ -271,8 +335,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/search",
-                "parts": [
-                  "search",
+                "segments": [
+                  {
+                    "lit": "search",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -283,6 +349,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "search",
+                ],
               },
             ],
           },
@@ -306,9 +375,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quote/{id}",
-                "parts": [
-                  "quote",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "quote",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -319,15 +392,23 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "quote",
+                  "{id}",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quote/random",
-                "parts": [
-                  "quote",
-                  "random",
+                "segments": [
+                  {
+                    "lit": "quote",
+                  },
+                  {
+                    "lit": "random",
+                  },
                 ],
                 "select": {
                   "$action": "random",
@@ -336,6 +417,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "quote",
+                  "random",
+                ],
               },
             ],
           },
