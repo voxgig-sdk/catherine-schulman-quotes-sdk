@@ -105,7 +105,7 @@ local results, err = client:Episode():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/catherine-schulman-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catherine-schulman-quotes-sdk/releases) |
+| TypeScript | `@voxgig-sdk/catherine-schulman-quotes-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catherine-schulman-quotes-sdk/releases) |
 | Python | `voxgig-sdk-catherine-schulman-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catherine-schulman-quotes-sdk/releases) |
 | PHP | `voxgig-sdk/catherine-schulman-quotes` | publish pending — [install from git tag](https://github.com/voxgig-sdk/catherine-schulman-quotes-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/catherine-schulman-quotes-sdk/go` | `go get github.com/voxgig-sdk/catherine-schulman-quotes-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Episode():list()
 ### TypeScript
 
 ```ts
-import { CatherineSchulmanQuotesSDK } from '@voxgig-sdk/catherine-schulman-quotes'
+import { CatherineSchulmanQuotesSDK } from '@voxgig-sdk/catherine-schulman-quotes-sdk'
 
 const client = new CatherineSchulmanQuotesSDK()
 

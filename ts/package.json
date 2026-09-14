@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/catherine-schulman-quotes",
+  "name": "@voxgig-sdk/catherine-schulman-quotes-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Catherine Schulman Quotes public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
