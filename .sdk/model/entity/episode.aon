@@ -56,6 +56,12 @@ main: kit: entity: episode: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /last/episodes/all"
+            json: "{\"operationId\":\"getLastEpisodesAll\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"date\":{\"description\":\"Release date of the episode\",\"format\":\"date\",\"type\":\"string\"},\"description\":{\"description\":\"Description or summary of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the episode\",\"example\":3,\"type\":\"integer\"},\"program\":{\"description\":\"Name of the program\",\"example\":\"zakladka\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the episode\",\"type\":\"string\"},\"url\":{\"description\":\"URL to the episode\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of latest episodes from all programs\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/last/episodes/all"
           segments: [
@@ -95,6 +101,12 @@ main: kit: entity: episode: {
               }
             ]
           }
+          contract: {
+            id: "GET /episodes/zakladka/{id}"
+            json: "{\"operationId\":\"getEpisodeById\",\"parameters\":[{\"description\":\"The unique identifier of the episode\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":3,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"date\":{\"description\":\"Release date of the episode\",\"format\":\"date\",\"type\":\"string\"},\"description\":{\"description\":\"Description or summary of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the episode\",\"example\":3,\"type\":\"integer\"},\"program\":{\"description\":\"Name of the program\",\"example\":\"zakladka\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the episode\",\"type\":\"string\"},\"url\":{\"description\":\"URL to the episode\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"The requested episode\"},\"404\":{\"description\":\"Episode not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/episodes/zakladka/{id}"
           segments: [
@@ -119,6 +131,12 @@ main: kit: entity: episode: {
           }
         }
         {
+          contract: {
+            id: "GET /episodes/zakladka/random"
+            json: "{\"operationId\":\"getRandomEpisode\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"date\":{\"description\":\"Release date of the episode\",\"format\":\"date\",\"type\":\"string\"},\"description\":{\"description\":\"Description or summary of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the episode\",\"example\":3,\"type\":\"integer\"},\"program\":{\"description\":\"Name of the program\",\"example\":\"zakladka\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the episode\",\"type\":\"string\"},\"url\":{\"description\":\"URL to the episode\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"A random episode\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/episodes/zakladka/random"
           segments: [

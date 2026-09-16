@@ -4,7 +4,10 @@ declare(strict_types=1);
 // CatherineSchulmanQuotes SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CatherineSchulmanQuotesFeatures
@@ -14,8 +17,14 @@ class CatherineSchulmanQuotesFeatures
         switch ($name) {
             case "base":
                 return new CatherineSchulmanQuotesBaseFeature();
+            case "ratelimit":
+                return new CatherineSchulmanQuotesRatelimitFeature();
+            case "retry":
+                return new CatherineSchulmanQuotesRetryFeature();
             case "test":
                 return new CatherineSchulmanQuotesTestFeature();
+            case "timeout":
+                return new CatherineSchulmanQuotesTimeoutFeature();
             default:
                 return new CatherineSchulmanQuotesBaseFeature();
         }
@@ -31,7 +40,10 @@ class CatherineSchulmanQuotesFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

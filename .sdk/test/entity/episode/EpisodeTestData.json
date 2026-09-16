@@ -37,5 +37,186 @@
         "url": "sf5"
       }
     }
+  },
+  "requests": {
+    "GET /last/episodes/all": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getLastEpisodesAll",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "date": {
+                        "description": "Release date of the episode",
+                        "format": "date",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "Description or summary of the episode",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the episode",
+                        "example": 3,
+                        "type": "integer"
+                      },
+                      "program": {
+                        "description": "Name of the program",
+                        "example": "zakladka",
+                        "type": "string"
+                      },
+                      "title": {
+                        "description": "Title of the episode",
+                        "type": "string"
+                      },
+                      "url": {
+                        "description": "URL to the episode",
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "List of latest episodes from all programs"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /episodes/zakladka/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getEpisodeById",
+        "parameters": [
+          {
+            "description": "The unique identifier of the episode",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "example": 3,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "date": {
+                      "description": "Release date of the episode",
+                      "format": "date",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Description or summary of the episode",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the episode",
+                      "example": 3,
+                      "type": "integer"
+                    },
+                    "program": {
+                      "description": "Name of the program",
+                      "example": "zakladka",
+                      "type": "string"
+                    },
+                    "title": {
+                      "description": "Title of the episode",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "URL to the episode",
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "The requested episode"
+          },
+          "404": {
+            "description": "Episode not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /episodes/zakladka/random": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getRandomEpisode",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "date": {
+                      "description": "Release date of the episode",
+                      "format": "date",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Description or summary of the episode",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the episode",
+                      "example": 3,
+                      "type": "integer"
+                    },
+                    "program": {
+                      "description": "Name of the program",
+                      "example": "zakladka",
+                      "type": "string"
+                    },
+                    "title": {
+                      "description": "Title of the episode",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "URL to the episode",
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A random episode"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
