@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicEpisodeFlow.aon"
-@"BasicEpisodeStatusFlow.aon"
-@"BasicQuoteFlow.aon"
+@"./BasicEpisodeFlow.aon"
+@"./BasicEpisodeStatusFlow.aon"
+@"./BasicQuoteFlow.aon"

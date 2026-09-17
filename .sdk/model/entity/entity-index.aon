@@ -1,5 +1,5 @@
 # Entity Models
 
-@"episode.aon"
-@"episode_status.aon"
-@"quote.aon"
+@"./episode.aon"
+@"./episode_status.aon"
+@"./quote.aon"
