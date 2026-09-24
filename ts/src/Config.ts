@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -144,36 +137,42 @@ class Config {
     "episode": {
       "fields": [
         {
-          "format": "date",
           "name": "date",
+          "title": "Date",
+          "type": "`$STRING`",
           "short": "Release date of the episode",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "description",
-          "short": "Description or summary of the episode",
-          "type": "`$STRING`"
+          "title": "Description",
+          "type": "`$STRING`",
+          "short": "Description or summary of the episode"
         },
         {
           "name": "id",
-          "short": "Unique identifier for the episode",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique identifier for the episode"
         },
         {
           "name": "program",
-          "short": "Name of the program",
-          "type": "`$STRING`"
+          "title": "Program",
+          "type": "`$STRING`",
+          "short": "Name of the program"
         },
         {
           "name": "title",
-          "short": "Title of the episode",
-          "type": "`$STRING`"
+          "title": "Title",
+          "type": "`$STRING`",
+          "short": "Title of the episode"
         },
         {
-          "format": "uri",
           "name": "url",
+          "title": "Url",
+          "type": "`$STRING`",
           "short": "URL to the episode",
-          "type": "`$STRING`"
+          "format": "uri"
         }
       ],
       "id": {
@@ -187,7 +186,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/last/episodes/all",
@@ -202,18 +200,20 @@ class Config {
                   "lit": "all"
                 }
               ],
-              "select": {
-                "$action": "all"
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "last",
                 "episodes",
                 "all"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {},
+              "select": {
+                "$action": "all"
+              }
             }
           ]
         },
@@ -222,18 +222,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": 3,
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/episodes/zakladka/{id}",
@@ -248,23 +236,35 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "episodes",
                 "zakladka",
                 "{id}"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": 3
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/episodes/zakladka/random",
@@ -279,16 +279,18 @@ class Config {
                   "lit": "random"
                 }
               ],
-              "select": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "episodes",
                 "zakladka",
                 "random"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {},
+              "select": {}
             }
           ]
         }
@@ -300,25 +302,29 @@ class Config {
     "episode_status": {
       "fields": [
         {
-          "format": "date",
           "name": "lastEpisodeDate",
+          "title": "Last Episode Date",
+          "type": "`$STRING`",
           "short": "Date of the last episode",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "lastEpisodeId",
-          "short": "ID of the last episode",
-          "type": "`$INTEGER`"
+          "title": "Last Episode Id",
+          "type": "`$INTEGER`",
+          "short": "ID of the last episode"
         },
         {
           "name": "program",
-          "short": "Name of the program",
-          "type": "`$STRING`"
+          "title": "Program",
+          "type": "`$STRING`",
+          "short": "Name of the program"
         },
         {
           "name": "status",
-          "short": "Current status of the program",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "Current status of the program"
         }
       ],
       "name": "episode_status",
@@ -328,7 +334,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/last/episodes/status",
@@ -343,16 +348,18 @@ class Config {
                   "lit": "status"
                 }
               ],
-              "select": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "last",
                 "episodes",
                 "status"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {},
+              "select": {}
             }
           ]
         }
@@ -365,29 +372,34 @@ class Config {
       "fields": [
         {
           "name": "author",
-          "short": "Author of the quote",
-          "type": "`$STRING`"
+          "title": "Author",
+          "type": "`$STRING`",
+          "short": "Author of the quote"
         },
         {
-          "format": "date",
           "name": "date",
+          "title": "Date",
+          "type": "`$STRING`",
           "short": "Date when the quote was said or published",
-          "type": "`$STRING`"
+          "format": "date"
         },
         {
           "name": "id",
-          "short": "Unique identifier for the quote",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique identifier for the quote"
         },
         {
           "name": "source",
-          "short": "Source or context of the quote",
-          "type": "`$STRING`"
+          "title": "Source",
+          "type": "`$STRING`",
+          "short": "Source or context of the quote"
         },
         {
           "name": "text",
-          "short": "The quote text",
-          "type": "`$STRING`"
+          "title": "Text",
+          "type": "`$STRING`",
+          "short": "The quote text"
         }
       ],
       "id": {
@@ -401,18 +413,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "дом",
-                    "kind": "query",
-                    "name": "q",
-                    "orig": "q",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/search",
@@ -421,18 +421,31 @@ class Config {
                   "lit": "search"
                 }
               ],
-              "select": {
-                "exist": [
-                  "q"
-                ]
-              },
+              "parts": [
+                "search"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "search"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "q",
+                    "orig": "q",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true,
+                    "example": "дом"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "q"
+                ]
+              }
             }
           ]
         },
@@ -441,18 +454,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "example": 3,
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/quote/{id}",
@@ -464,22 +465,34 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "quote",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "quote",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true,
+                    "example": 3
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             },
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/quote/random",
@@ -491,17 +504,19 @@ class Config {
                   "lit": "random"
                 }
               ],
-              "select": {
-                "$action": "random"
-              },
+              "parts": [
+                "quote",
+                "random"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "quote",
-                "random"
-              ]
+              "args": {},
+              "select": {
+                "$action": "random"
+              }
             }
           ]
         }

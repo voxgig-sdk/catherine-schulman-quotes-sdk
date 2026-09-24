@@ -1,0 +1,28 @@
+# BasicEpisodeStatusFlow
+
+main: kit: flow: BasicEpisodeStatusFlow:
+{
+  entity: "episode_status",
+  kind: "basic",
+  name: "BasicEpisodeStatusFlow",
+  step: [
+    {
+      i: {
+        ref: "episode_status_ref01",
+        srcdatavar: "episode_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-episode_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEpisodeStatusFlow"
+}

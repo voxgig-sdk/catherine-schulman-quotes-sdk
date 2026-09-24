@@ -1,7 +1,7 @@
 // Typed models for the CatherineSchulmanQuotes SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,12 +14,6 @@ import (
 
 // Episode is the typed data model for the episode entity.
 type Episode struct {
-	Date *string `json:"date,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Program *string `json:"program,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Url *string `json:"url,omitempty"`
 }
 
 // EpisodeLoadMatch is the typed request payload for Episode.LoadTyped.
@@ -39,10 +33,6 @@ type EpisodeListMatch struct {
 
 // EpisodeStatus is the typed data model for the episode_status entity.
 type EpisodeStatus struct {
-	LastEpisodeDate *string `json:"lastEpisodeDate,omitempty"`
-	LastEpisodeId *int `json:"lastEpisodeId,omitempty"`
-	Program *string `json:"program,omitempty"`
-	Status *string `json:"status,omitempty"`
 }
 
 // EpisodeStatusLoadMatch is the typed request payload for EpisodeStatus.LoadTyped.
@@ -55,11 +45,6 @@ type EpisodeStatusLoadMatch struct {
 
 // Quote is the typed data model for the quote entity.
 type Quote struct {
-	Author *string `json:"author,omitempty"`
-	Date *string `json:"date,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Source *string `json:"source,omitempty"`
-	Text *string `json:"text,omitempty"`
 }
 
 // QuoteLoadMatch is the typed request payload for Quote.LoadTyped.

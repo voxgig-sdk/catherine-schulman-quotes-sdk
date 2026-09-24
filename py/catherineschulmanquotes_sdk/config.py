@@ -117,36 +117,42 @@ def make_config():
       "episode": {
         "fields": [
           {
-            "format": "date",
             "name": "date",
-            "short": "Release date of the episode",
+            "title": "Date",
             "type": "`$STRING`",
+            "short": "Release date of the episode",
+            "format": "date",
           },
           {
             "name": "description",
-            "short": "Description or summary of the episode",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Description or summary of the episode",
           },
           {
             "name": "id",
-            "short": "Unique identifier for the episode",
+            "title": "Id",
             "type": "`$INTEGER`",
+            "short": "Unique identifier for the episode",
           },
           {
             "name": "program",
-            "short": "Name of the program",
+            "title": "Program",
             "type": "`$STRING`",
+            "short": "Name of the program",
           },
           {
             "name": "title",
-            "short": "Title of the episode",
+            "title": "Title",
             "type": "`$STRING`",
+            "short": "Title of the episode",
           },
           {
-            "format": "uri",
             "name": "url",
-            "short": "URL to the episode",
+            "title": "Url",
             "type": "`$STRING`",
+            "short": "URL to the episode",
+            "format": "uri",
           },
         ],
         "id": {
@@ -160,7 +166,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/last/episodes/all",
@@ -175,18 +180,20 @@ def make_config():
                     "lit": "all",
                   },
                 ],
-                "select": {
-                  "$action": "all",
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "last",
                   "episodes",
                   "all",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {
+                  "$action": "all",
+                },
               },
             ],
           },
@@ -195,18 +202,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": 3,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/episodes/zakladka/{id}",
@@ -221,23 +216,35 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "episodes",
                   "zakladka",
                   "{id}",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": 3,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/episodes/zakladka/random",
@@ -252,16 +259,18 @@ def make_config():
                     "lit": "random",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "episodes",
                   "zakladka",
                   "random",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -273,25 +282,29 @@ def make_config():
       "episode_status": {
         "fields": [
           {
-            "format": "date",
             "name": "lastEpisodeDate",
-            "short": "Date of the last episode",
+            "title": "Last Episode Date",
             "type": "`$STRING`",
+            "short": "Date of the last episode",
+            "format": "date",
           },
           {
             "name": "lastEpisodeId",
-            "short": "ID of the last episode",
+            "title": "Last Episode Id",
             "type": "`$INTEGER`",
+            "short": "ID of the last episode",
           },
           {
             "name": "program",
-            "short": "Name of the program",
+            "title": "Program",
             "type": "`$STRING`",
+            "short": "Name of the program",
           },
           {
             "name": "status",
-            "short": "Current status of the program",
+            "title": "Status",
             "type": "`$STRING`",
+            "short": "Current status of the program",
           },
         ],
         "name": "episode_status",
@@ -301,7 +314,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/last/episodes/status",
@@ -316,16 +328,18 @@ def make_config():
                     "lit": "status",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "last",
                   "episodes",
                   "status",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -338,29 +352,34 @@ def make_config():
         "fields": [
           {
             "name": "author",
-            "short": "Author of the quote",
+            "title": "Author",
             "type": "`$STRING`",
+            "short": "Author of the quote",
           },
           {
-            "format": "date",
             "name": "date",
-            "short": "Date when the quote was said or published",
+            "title": "Date",
             "type": "`$STRING`",
+            "short": "Date when the quote was said or published",
+            "format": "date",
           },
           {
             "name": "id",
-            "short": "Unique identifier for the quote",
+            "title": "Id",
             "type": "`$INTEGER`",
+            "short": "Unique identifier for the quote",
           },
           {
             "name": "source",
-            "short": "Source or context of the quote",
+            "title": "Source",
             "type": "`$STRING`",
+            "short": "Source or context of the quote",
           },
           {
             "name": "text",
-            "short": "The quote text",
+            "title": "Text",
             "type": "`$STRING`",
+            "short": "The quote text",
           },
         ],
         "id": {
@@ -374,18 +393,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "дом",
-                      "kind": "query",
-                      "name": "q",
-                      "orig": "q",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/search",
@@ -394,18 +401,31 @@ def make_config():
                     "lit": "search",
                   },
                 ],
+                "parts": [
+                  "search",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "q",
+                      "orig": "q",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "дом",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "q",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "search",
-                ],
               },
             ],
           },
@@ -414,18 +434,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": 3,
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$INTEGER`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quote/{id}",
@@ -437,22 +445,34 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "quote",
+                  "{id}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$INTEGER`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": 3,
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "quote",
-                  "{id}",
-                ],
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quote/random",
@@ -464,17 +484,19 @@ def make_config():
                     "lit": "random",
                   },
                 ],
-                "select": {
-                  "$action": "random",
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "quote",
                   "random",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {
+                  "$action": "random",
+                },
               },
             ],
           },

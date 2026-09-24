@@ -1,0 +1,164 @@
+# Entity: quote
+
+main: kit: entity: quote: {
+
+  alias: field: {}
+
+  fields: {
+    author: {
+      h: "Author"
+      n: "author"
+      r: false
+      sh: "Author of the quote"
+      t: "`$STRING`"
+    }
+    date: {
+      fo: "date"
+      h: "Date"
+      n: "date"
+      r: false
+      sh: "Date when the quote was said or published"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the quote"
+      t: "`$INTEGER`"
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: false
+      sh: "Source or context of the quote"
+      t: "`$STRING`"
+    }
+    text: {
+      h: "Text"
+      n: "text"
+      r: false
+      sh: "The quote text"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "quote"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "дом"
+                k: "query"
+                n: "q"
+                or: "q"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search"
+          q: {
+            exist: [
+              "q"
+            ]
+          }
+          s: [
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /quote/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: 3
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quote/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "quote"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /quote/random"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/quote/random"
+          q: {
+            "$action": "random"
+          }
+          s: [
+            {
+              lit: "quote"
+            }
+            {
+              lit: "random"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

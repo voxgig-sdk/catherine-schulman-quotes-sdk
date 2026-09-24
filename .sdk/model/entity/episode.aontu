@@ -1,0 +1,167 @@
+# Entity: episode
+
+main: kit: entity: episode: {
+
+  alias: field: {}
+
+  fields: {
+    date: {
+      fo: "date"
+      h: "Date"
+      n: "date"
+      r: false
+      sh: "Release date of the episode"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Description or summary of the episode"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the episode"
+      t: "`$INTEGER`"
+    }
+    program: {
+      h: "Program"
+      n: "program"
+      r: false
+      sh: "Name of the program"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Title of the episode"
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: false
+      sh: "URL to the episode"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "episode"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /last/episodes/all"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/last/episodes/all"
+          q: {
+            "$action": "all"
+          }
+          s: [
+            {
+              lit: "last"
+            }
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "all"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /episodes/zakladka/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: 3
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/episodes/zakladka/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "zakladka"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /episodes/zakladka/random"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/episodes/zakladka/random"
+          s: [
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "zakladka"
+            }
+            {
+              lit: "random"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

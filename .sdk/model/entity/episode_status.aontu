@@ -1,0 +1,74 @@
+# Entity: episode_status
+
+main: kit: entity: episode_status: {
+
+  alias: field: {}
+
+  fields: {
+    lastEpisodeDate: {
+      fo: "date"
+      h: "Last Episode Date"
+      n: "lastEpisodeDate"
+      r: false
+      sh: "Date of the last episode"
+      t: "`$STRING`"
+    }
+    lastEpisodeId: {
+      h: "Last Episode Id"
+      n: "lastEpisodeId"
+      r: false
+      sh: "ID of the last episode"
+      t: "`$INTEGER`"
+    }
+    program: {
+      h: "Program"
+      n: "program"
+      r: false
+      sh: "Name of the program"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "Current status of the program"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "episode_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /last/episodes/status"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/last/episodes/status"
+          s: [
+            {
+              lit: "last"
+            }
+            {
+              lit: "episodes"
+            }
+            {
+              lit: "status"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

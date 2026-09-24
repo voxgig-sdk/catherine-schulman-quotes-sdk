@@ -43,7 +43,7 @@ local episodes, err = client:Episode():list()
 if err then error(err) end
 
 for _, item in ipairs(episodes) do
-  print(item["id"], item["date"])
+  print(item["id"])
 end
 ```
 

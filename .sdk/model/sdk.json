@@ -24,58 +24,130 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "episode": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "date",
-              "req": false,
-              "short": "Release date of the episode",
-              "type": "`$STRING`"
+          "fields": {
+            "date": {
+              "a": true,
+              "fo": "date",
+              "h": "Date",
+              "n": "date",
+              "r": false,
+              "sh": "Release date of the episode",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "description",
-              "req": false,
-              "short": "Description or summary of the episode",
-              "type": "`$STRING`"
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "Description or summary of the episode",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the episode",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the episode",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "program",
-              "req": false,
-              "short": "Name of the program",
-              "type": "`$STRING`"
+            "program": {
+              "a": true,
+              "h": "Program",
+              "n": "program",
+              "r": false,
+              "sh": "Name of the program",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Title of the episode",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Title of the episode",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "url",
-              "req": false,
-              "short": "URL to the episode",
-              "type": "`$STRING`"
+            "url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Url",
+              "n": "url",
+              "r": false,
+              "sh": "URL to the episode",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -87,18 +159,21 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /last/episodes/all",
-                    "json": "{\"operationId\":\"getLastEpisodesAll\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"date\":{\"description\":\"Release date of the episode\",\"format\":\"date\",\"type\":\"string\"},\"description\":{\"description\":\"Description or summary of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the episode\",\"example\":3,\"type\":\"integer\"},\"program\":{\"description\":\"Name of the program\",\"example\":\"zakladka\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the episode\",\"type\":\"string\"},\"url\":{\"description\":\"URL to the episode\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of latest episodes from all programs\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/last/episodes/all",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/last/episodes/all",
+                  "q": {
+                    "$action": "all"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "last"
                     },
@@ -109,10 +184,7 @@
                       "lit": "all"
                     }
                   ],
-                  "select": {
-                    "$action": "all"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -124,30 +196,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /episodes/zakladka/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": 3,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 3,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /episodes/zakladka/{id}",
-                    "json": "{\"operationId\":\"getEpisodeById\",\"parameters\":[{\"description\":\"The unique identifier of the episode\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":3,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"date\":{\"description\":\"Release date of the episode\",\"format\":\"date\",\"type\":\"string\"},\"description\":{\"description\":\"Description or summary of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the episode\",\"example\":3,\"type\":\"integer\"},\"program\":{\"description\":\"Name of the program\",\"example\":\"zakladka\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the episode\",\"type\":\"string\"},\"url\":{\"description\":\"URL to the episode\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"The requested episode\"},\"404\":{\"description\":\"Episode not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/episodes/zakladka/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/episodes/zakladka/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "episodes"
                     },
@@ -158,29 +235,25 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /episodes/zakladka/random",
-                    "json": "{\"operationId\":\"getRandomEpisode\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"date\":{\"description\":\"Release date of the episode\",\"format\":\"date\",\"type\":\"string\"},\"description\":{\"description\":\"Description or summary of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the episode\",\"example\":3,\"type\":\"integer\"},\"program\":{\"description\":\"Name of the program\",\"example\":\"zakladka\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the episode\",\"type\":\"string\"},\"url\":{\"description\":\"URL to the episode\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"A random episode\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/episodes/zakladka/random",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/episodes/zakladka/random",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "episodes"
                     },
@@ -191,8 +264,7 @@
                       "lit": "random"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -209,37 +281,41 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date",
-              "name": "lastEpisodeDate",
-              "req": false,
-              "short": "Date of the last episode",
-              "type": "`$STRING`"
+          "fields": {
+            "lastEpisodeDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Last Episode Date",
+              "n": "lastEpisodeDate",
+              "r": false,
+              "sh": "Date of the last episode",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "lastEpisodeId",
-              "req": false,
-              "short": "ID of the last episode",
-              "type": "`$INTEGER`"
+            "lastEpisodeId": {
+              "a": true,
+              "h": "Last Episode Id",
+              "n": "lastEpisodeId",
+              "r": false,
+              "sh": "ID of the last episode",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "program",
-              "req": false,
-              "short": "Name of the program",
-              "type": "`$STRING`"
+            "program": {
+              "a": true,
+              "h": "Program",
+              "n": "program",
+              "r": false,
+              "sh": "Name of the program",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Current status of the program",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Current status of the program",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "episode_status",
           "op": {
             "load": {
@@ -247,18 +323,19 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /last/episodes/status",
-                    "json": "{\"operationId\":\"getLastEpisodeStatus\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"lastEpisodeDate\":{\"description\":\"Date of the last episode\",\"format\":\"date\",\"type\":\"string\"},\"lastEpisodeId\":{\"description\":\"ID of the last episode\",\"type\":\"integer\"},\"program\":{\"description\":\"Name of the program\",\"type\":\"string\"},\"status\":{\"description\":\"Current status of the program\",\"enum\":[\"active\",\"inactive\",\"completed\"],\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Status information of the last episode\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/last/episodes/status",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/last/episodes/status",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "last"
                     },
@@ -269,8 +346,7 @@
                       "lit": "status"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -287,44 +363,49 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "author",
-              "req": false,
-              "short": "Author of the quote",
-              "type": "`$STRING`"
+          "fields": {
+            "author": {
+              "a": true,
+              "h": "Author",
+              "n": "author",
+              "r": false,
+              "sh": "Author of the quote",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "date",
-              "req": false,
-              "short": "Date when the quote was said or published",
-              "type": "`$STRING`"
+            "date": {
+              "a": true,
+              "fo": "date",
+              "h": "Date",
+              "n": "date",
+              "r": false,
+              "sh": "Date when the quote was said or published",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the quote",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the quote",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "source",
-              "req": false,
-              "short": "Source or context of the quote",
-              "type": "`$STRING`"
+            "source": {
+              "a": true,
+              "h": "Source",
+              "n": "source",
+              "r": false,
+              "sh": "Source or context of the quote",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "text",
-              "req": false,
-              "short": "The quote text",
-              "type": "`$STRING`"
+            "text": {
+              "a": true,
+              "h": "Text",
+              "n": "text",
+              "r": false,
+              "sh": "The quote text",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -336,40 +417,40 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "дом",
-                        "kind": "query",
-                        "name": "q",
-                        "orig": "q",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "дом",
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /search",
-                    "json": "{\"operationId\":\"searchQuotes\",\"parameters\":[{\"description\":\"Search query string to find in quotes\",\"in\":\"query\",\"name\":\"q\",\"required\":true,\"schema\":{\"example\":\"дом\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"author\":{\"description\":\"Author of the quote\",\"example\":\"Catherine Schulman\",\"type\":\"string\"},\"date\":{\"description\":\"Date when the quote was said or published\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the quote\",\"example\":3,\"type\":\"integer\"},\"source\":{\"description\":\"Source or context of the quote\",\"example\":\"Закладка\",\"type\":\"string\"},\"text\":{\"description\":\"The quote text\",\"example\":\"Политика — это искусство возможного\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"List of quotes matching the search query\"},\"400\":{\"description\":\"Invalid search query\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/search",
-                  "segments": [
-                    {
-                      "lit": "search"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search",
+                  "q": {
                     "exist": [
                       "q"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "search"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -381,30 +462,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /quote/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": 3,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 3,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /quote/{id}",
-                    "json": "{\"operationId\":\"getQuoteById\",\"parameters\":[{\"description\":\"The unique identifier of the quote\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"example\":3,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"author\":{\"description\":\"Author of the quote\",\"example\":\"Catherine Schulman\",\"type\":\"string\"},\"date\":{\"description\":\"Date when the quote was said or published\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the quote\",\"example\":3,\"type\":\"integer\"},\"source\":{\"description\":\"Source or context of the quote\",\"example\":\"Закладка\",\"type\":\"string\"},\"text\":{\"description\":\"The quote text\",\"example\":\"Политика — это искусство возможного\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"The requested quote\"},\"404\":{\"description\":\"Quote not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/quote/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/quote/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "quote"
                     },
@@ -412,29 +498,27 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /quote/random",
-                    "json": "{\"operationId\":\"getRandomQuote\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"author\":{\"description\":\"Author of the quote\",\"example\":\"Catherine Schulman\",\"type\":\"string\"},\"date\":{\"description\":\"Date when the quote was said or published\",\"format\":\"date\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the quote\",\"example\":3,\"type\":\"integer\"},\"source\":{\"description\":\"Source or context of the quote\",\"example\":\"Закладка\",\"type\":\"string\"},\"text\":{\"description\":\"The quote text\",\"example\":\"Политика — это искусство возможного\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"A random quote\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/quote/random",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/quote/random",
+                  "q": {
+                    "$action": "random"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "quote"
                     },
@@ -442,10 +526,7 @@
                       "lit": "random"
                     }
                   ],
-                  "select": {
-                    "$action": "random"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -874,13 +955,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -890,17 +971,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "episode_ref01",
                 "srcdatavar": "episode_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -920,17 +1001,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "episode_status_ref01",
                 "srcdatavar": "episode_status_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -950,13 +1031,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -966,17 +1047,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "quote_ref01",
                 "srcdatavar": "quote_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
