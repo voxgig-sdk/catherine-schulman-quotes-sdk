@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CatherineSchulmanQuotesUtility::setRegistrar(function (CatherineSchulmanQuotesUtility $u): void {
     $u->clean = [CatherineSchulmanQuotesClean::class, 'call'];
+    $u->clean_add = [CatherineSchulmanQuotesClean::class, 'add'];
+    $u->clean_explain = [CatherineSchulmanQuotesDone::class, 'clean_explain'];
     $u->done = [CatherineSchulmanQuotesDone::class, 'call'];
     $u->make_error = [CatherineSchulmanQuotesMakeError::class, 'call'];
     $u->feature_add = [CatherineSchulmanQuotesFeatureAdd::class, 'call'];

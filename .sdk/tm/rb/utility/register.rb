@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CatherineSchulmanQuotesUtility.registrar = ->(u) {
   u.clean = CatherineSchulmanQuotesUtilities::Clean
+  u.clean_add = CatherineSchulmanQuotesUtilities::CleanAdd
+  u.clean_explain = CatherineSchulmanQuotesUtilities::CleanExplain
   u.done = CatherineSchulmanQuotesUtilities::Done
   u.make_error = CatherineSchulmanQuotesUtilities::MakeError
   u.feature_add = CatherineSchulmanQuotesUtilities::FeatureAdd
