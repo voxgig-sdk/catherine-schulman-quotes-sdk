@@ -72,6 +72,10 @@ main: kit: entity: episode: {
           q: {
             "$action": "all"
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "last"
@@ -118,6 +122,10 @@ main: kit: entity: episode: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "episodes"
@@ -142,6 +150,10 @@ main: kit: entity: episode: {
           }
           m: "GET"
           o: "/episodes/zakladka/random"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "episodes"

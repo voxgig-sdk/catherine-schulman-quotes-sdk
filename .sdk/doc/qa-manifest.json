@@ -3,5 +3,31 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "A random episode",
+      "A random quote",
+      "Author of the quote",
+      "Current status of the program",
+      "Date of the last episode",
+      "Date when the quote was said or published",
+      "Description or summary of the episode",
+      "ID of the last episode",
+      "List of latest episodes from all programs",
+      "List of quotes matching the search query",
+      "Name of the program",
+      "Production server",
+      "Release date of the episode",
+      "Source or context of the quote",
+      "Status information of the last episode",
+      "The quote text",
+      "The requested episode",
+      "The requested quote",
+      "This API provides access to a collection of quotes attributed to Catherine Schulman. Users can retrieve all quotes, get a random quote, or search for quotes containing specific words or by unique identifiers.",
+      "Title of the episode",
+      "Unique identifier for the episode",
+      "Unique identifier for the quote"
+    ]
+  }
 }

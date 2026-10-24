@@ -49,6 +49,10 @@ main: kit: entity: episode_status: {
           }
           m: "GET"
           o: "/last/episodes/status"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "last"

@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { CatherineSchulmanQuotesSDK, BaseFeature, stdutil } from '../../..'
+import { CatherineSchulmanQuotesSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('EpisodeStatusEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = CatherineSchulmanQuotesSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.EpisodeStatus().load({"lastEpisodeDate":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.CATHERINE_SCHULMAN_QUOTES_TEST_LIVE
@@ -51,7 +63,7 @@ describe('EpisodeStatusEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"lastEpisodeDate":{"a":true,"fo":"date","h":"Last Episode Date","n":"lastEpisodeDate","r":false,"sh":"Date of the last episode","t":"`$STRING`","key$":"lastEpisodeDate","index$":0},"lastEpisodeId":{"a":true,"h":"Last Episode Id","n":"lastEpisodeId","r":false,"sh":"ID of the last episode","t":"`$INTEGER`","key$":"lastEpisodeId","index$":1},"program":{"a":true,"h":"Program","n":"program","r":false,"sh":"Name of the program","t":"`$STRING`","key$":"program","index$":2},"status":{"a":true,"h":"Status","n":"status","r":false,"sh":"Current status of the program","t":"`$STRING`","key$":"status","index$":3}},"name":"episode_status","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /last/episodes/status","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/last/episodes/status","q":{},"r":{},"s":[{"lit":"last"},{"lit":"episodes"},{"lit":"status"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"episode_status","name__orig":"episode_status","Name":"EpisodeStatus","name_":"episode_status","name-":"episode-status","NAME":"EPISODE_STATUS","index$":1}, {"active":true,"entity":"episode_status","key$":"BasicEpisodeStatusFlow","kind":"basic","name":"BasicEpisodeStatusFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"episode_status_ref01","srcdatavar":"episode_status_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-episode_status_ref01"}}],"index$":0}]}, 'EpisodeStatus', {"GET /last/episodes/status":{"protocol":"http","parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"lastEpisodeDate":{"a":true,"fo":"date","h":"Last Episode Date","n":"lastEpisodeDate","r":false,"sh":"Date of the last episode","t":"`$STRING`","key$":"lastEpisodeDate","index$":0},"lastEpisodeId":{"a":true,"h":"Last Episode Id","n":"lastEpisodeId","r":false,"sh":"ID of the last episode","t":"`$INTEGER`","key$":"lastEpisodeId","index$":1},"program":{"a":true,"h":"Program","n":"program","r":false,"sh":"Name of the program","t":"`$STRING`","key$":"program","index$":2},"status":{"a":true,"h":"Status","n":"status","r":false,"sh":"Current status of the program","t":"`$STRING`","key$":"status","index$":3}},"name":"episode_status","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /last/episodes/status","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/last/episodes/status","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"last"},{"lit":"episodes"},{"lit":"status"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"episode_status","name__orig":"episode_status","Name":"EpisodeStatus","name_":"episode_status","name-":"episode-status","NAME":"EPISODE_STATUS","index$":1}, {"active":true,"entity":"episode_status","key$":"BasicEpisodeStatusFlow","kind":"basic","name":"BasicEpisodeStatusFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"episode_status_ref01","srcdatavar":"episode_status_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-episode_status_ref01"}}],"index$":0}]}, 'EpisodeStatus', {"GET /last/episodes/status":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('EpisodeStatusEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

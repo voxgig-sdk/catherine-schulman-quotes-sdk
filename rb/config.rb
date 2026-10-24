@@ -79,6 +79,7 @@ module CatherineSchulmanQuotesConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -177,6 +178,10 @@ module CatherineSchulmanQuotesConfig
                   "select" => {
                     "$action" => "all",
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -226,6 +231,10 @@ module CatherineSchulmanQuotesConfig
                       "id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -254,6 +263,10 @@ module CatherineSchulmanQuotesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -323,6 +336,10 @@ module CatherineSchulmanQuotesConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -409,6 +426,10 @@ module CatherineSchulmanQuotesConfig
                       "q",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -454,6 +475,10 @@ module CatherineSchulmanQuotesConfig
                       "id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -479,6 +504,10 @@ module CatherineSchulmanQuotesConfig
                   "args" => {},
                   "select" => {
                     "$action" => "random",
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

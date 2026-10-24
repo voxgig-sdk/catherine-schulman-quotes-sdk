@@ -22,7 +22,7 @@ export CATHERINE_SCHULMAN_QUOTES_APIKEY=sk_live_xxx
 ./catherine-schulman-quotes-cli list episode
 ./catherine-schulman-quotes-cli load 1 episode            # {id:1} shorthand
 ./catherine-schulman-quotes-cli load '{id:1}' episode       # explicit match map
-./catherine-schulman-quotes-cli list episode_status
+./catherine-schulman-quotes-cli list quote
 
 # 5. Override the API base URL for a single call
 CATHERINE_SCHULMAN_QUOTES_BASE=https://api.example.com ./catherine-schulman-quotes-cli list episode

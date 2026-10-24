@@ -93,6 +93,7 @@ class CatherineSchulmanQuotesConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -191,6 +192,10 @@ class CatherineSchulmanQuotesConfig
                   'select' => [
                     '$action' => 'all',
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -240,6 +245,10 @@ class CatherineSchulmanQuotesConfig
                       'id',
                     ],
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -268,6 +277,10 @@ class CatherineSchulmanQuotesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -337,6 +350,10 @@ class CatherineSchulmanQuotesConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -423,6 +440,10 @@ class CatherineSchulmanQuotesConfig
                       'q',
                     ],
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -468,6 +489,10 @@ class CatherineSchulmanQuotesConfig
                       'id',
                     ],
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -493,6 +518,10 @@ class CatherineSchulmanQuotesConfig
                   'args' => [],
                   'select' => [
                     '$action' => 'random',
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

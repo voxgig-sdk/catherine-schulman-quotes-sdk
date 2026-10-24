@@ -78,6 +78,10 @@ main: kit: entity: quote: {
               "q"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "search"
@@ -118,6 +122,10 @@ main: kit: entity: quote: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "quote"
@@ -141,6 +149,10 @@ main: kit: entity: quote: {
           o: "/quote/random"
           q: {
             "$action": "random"
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
